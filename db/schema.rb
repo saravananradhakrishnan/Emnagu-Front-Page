@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140912101005) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
+    t.string   "subdomain",              default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -46,14 +47,15 @@ ActiveRecord::Schema.define(version: 20140912101005) do
     t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user_name"
-    t.string   "subdomain"
+    t.string   "username"
     t.string   "gender"
     t.string   "contact"
+    t.string   "address_line1"
+    t.string   "address_line2"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email", "subdomain"], name: "index_users_on_email_and_subdomain", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
