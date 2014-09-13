@@ -27,9 +27,13 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
+    p params[:cat_id]
     @category = Category.new
-    @category.parent = Category.find(params[:id]) unless params[:id].nil?
-    p params[:id]
+    if !params[:cat_id].nil?
+      main_cat = Category.find(params[:cat_id]) unless params[:cat_id].nil?
+      @category.parent_id = main_cat.id
+    end
+    p  @category.parent_id
   end
 
   # GET /categories/1/edit
@@ -43,8 +47,14 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
-        format.json { render :show, status: :created, location: @category }
+        if !@category.parent_id.nil?
+          @category = Category.find(@category.parent_id)
+          format.html { redirect_to @category, notice: 'Category was successfully created.' }
+          format.json { render :show, status: :created, location: @category }
+        else
+          format.html { redirect_to @category, notice: 'Category was successfully created.' }
+          format.json { render :show, status: :created, location: @category }
+        end
       else
         format.html { render :new }
         format.json { render json: @category.errors, status: :unprocessable_entity }

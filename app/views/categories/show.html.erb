@@ -1,19 +1,36 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= @category.name %></h1>
 <table>
+<h3>
+	<div >
+	<%= link_to 'New sub-category', new_category_path(:cat_id=>@category.id) %>
+</div>
+<div style="float:right">
+	<%= link_to 'Back', categories_path %>
+</div>
+</h3>
+<table class="sortable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Edit </th>
+          <th>Delete </th>
+          <th>Date Modified</th
+        </tr>
+      </thead>
+      <tbody>
+
 <% @categories.each do |subcategory| %>
 <tr>
-  <td><%= link_to subcategory.name, category_path(subcategory) %></td>
-  <td><%= link_to 'Edit', edit_category_path(subcategory) unless subcategory.parent_id.nil? %></td>
-  <td><%= link_to 'Destroy', category_path(subcategory), :confirm => 'Are you sure?', :method => :delete unless subcategory.parent_id.nil? %></td>
+  <td><%= subcategory.name %></td>
+  <td><%= subcategory.description %></td>
+  <td><%= link_to 'Edit', edit_category_path(subcategory)%></td>
+  <td><%= link_to 'Destroy', category_path(subcategory), :confirm => 'Are you sure?', :method => :delete %></td>
+  <td><%= subcategory.updated_at %></td>
 </tr>
 <% end %>
+ </tbody>
 </table>
-<p>
-  <%= link_to 'Back', @category.parent_id.nil? ? categories_path : category_path(@category.parent) unless @category.nil? %>
-  <%= link_to 'New (sub-category', new_category_path(@category) unless @category.nil? %>
 
-  
-</p>
+
 
