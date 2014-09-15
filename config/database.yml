@@ -14,12 +14,12 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: admin
+  password: newpwd
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: emangu_development
+  database: emangu_backend_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: emangu_production
-  username: emangu
-  password: <%= ENV['EMANGU_DATABASE_PASSWORD'] %>
+  database: emangu_backend_production
+  username: root
+  password: newpwd
