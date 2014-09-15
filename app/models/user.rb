@@ -6,9 +6,10 @@ class User < ActiveRecord::Base
 
 
   after_create :auto_create_subdomain
-  after_create :send_admin_mail
+  # after_create :send_admin_mail
   # after_create :send_admin_mails
-
+  has_many :posts
+  has_many :comments
   validates_uniqueness_of :username
   validates_presence_of :username, :email
   validates :password, :presence => true, :on => :create
