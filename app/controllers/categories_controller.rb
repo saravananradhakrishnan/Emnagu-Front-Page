@@ -33,7 +33,6 @@ class CategoriesController < ApplicationController
       main_cat = Category.find(params[:cat_id]) unless params[:cat_id].nil?
       @category.parent_id = main_cat.id
     end
-    p  @category.parent_id
   end
 
   # GET /categories/1/edit
