@@ -19,7 +19,8 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+# gem 'jbuilder', '~> 2.0'
+gem 'rab'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -38,3 +39,12 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'devise'
+
+
+# For the HTML editor
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem "non-stupid-digest-assets"
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick'
+gem 'fog', '~> 1.21.0'
+gem 'unf'
