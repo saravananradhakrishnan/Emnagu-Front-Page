@@ -24,5 +24,10 @@
 </table>
 
 <br>
-
+<h1> Recent Post </h1>
+<% @posts.order('published_at desc').limit(3).each do |post| %>
+  <% if post.published_time %>
+    <%= link_to post.title.capitalize, post %>
+  <% end %>
+<% end %>
 <%= link_to 'New Post', new_post_path %>

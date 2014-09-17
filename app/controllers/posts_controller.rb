@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :published, :unpublished, :update, :destroy]
   before_action :authenticate_user!, :except =>[:index, :show]
-
+  respond_to :json
   # GET /posts
   def index
     @posts = Post.published
@@ -18,7 +18,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    redirect_to @post, notice: 'Not an authorized user'  if !@post.users_post(current_user)
+    @resource = @tenant
+      render "posts/unauthorized_user", :status => 422  if !@post.users_post(current_user)
   end
 
   # POST /posts
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.'
     else
-      render :edit
+      render :show, :status => 200
     end
   end
 
@@ -56,7 +57,8 @@ class PostsController < ApplicationController
       @post.publish!
       redirect_to blog_posts_posts_path, notice: 'Post was successfully published.'
     else
-      redirect_to @post, notice: 'Not an authorized user' 
+      # redirect_to @post, notice: 'Not an authorized user' 
+       render "posts/unauthorized_user", :status => 422
     end
   end
 

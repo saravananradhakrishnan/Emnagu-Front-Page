@@ -9,15 +9,29 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
 
 
-  resources :posts do
-    member do
-      get :published
-      get :unpublished
+  # resources :posts do
+  #   member do
+  #     get :published
+  #     get :unpublished
+  #   end
+  #   collection do
+  #     get :blog_posts
+  #   end
+  #   resources :comments
+  # end
+
+  scope :api , defaults: { format: 'json' } do
+  # scope :api do
+    resources :posts do
+      member do
+        get :published
+        get :unpublished
+      end
+      collection do
+        get :blog_posts
+      end
+      resources :comments
     end
-    collection do
-      get :blog_posts
-    end
-    resources :comments
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
