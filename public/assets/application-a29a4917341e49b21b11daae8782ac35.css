@@ -1,0 +1,282 @@
+/* line 5, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 10, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+body {
+  color: #333;
+  font: 14px Sans-Serif;
+  padding: 50px;
+  background: #eee;
+}
+
+/* line 17, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+h1 {
+  text-align: center;
+  padding: 20px 0 12px 0;
+  margin: 0;
+}
+
+/* line 22, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+h2 {
+  font-size: 16px;
+  text-align: center;
+  padding: 0 0 12px 0;
+}
+
+/* line 28, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+#container {
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
+  position: relative;
+  background: white;
+}
+
+/* line 34, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+table {
+  background-color: #F3F3F3;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 15px 0;
+}
+
+/* line 41, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+th {
+  background-color: #FE4902;
+  color: #FFF;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+/* line 48, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+th small {
+  font-size: 9px;
+}
+
+/* line 52, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+td, th {
+  text-align: left;
+}
+
+/* line 56, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 60, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+td a {
+  color: #663300;
+  display: block;
+  padding: 5px 10px;
+}
+
+/* line 65, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+th a {
+  padding-left: 0;
+}
+
+/* line 69, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+td:first-of-type a {
+  background: url(./.images/file.png) no-repeat 10px 50%;
+  padding-left: 35px;
+}
+
+/* line 73, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+th:first-of-type {
+  padding-left: 35px;
+}
+
+/* line 77, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+td:not(:first-of-type) a {
+  background-image: none !important;
+}
+
+/* line 81, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+tr:nth-of-type(odd) {
+  background-color: #E6E6E6;
+}
+
+/* line 85, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+tr:hover td {
+  background-color: #CACACA;
+}
+
+/* line 89, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+tr:hover td a {
+  color: #ffffdd RDA;
+}
+
+/* icons for file types (icons by famfamfam) */
+/* images */
+/* line 105, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+table tr td:first-of-type a[href$=".jpg"],
+table tr td:first-of-type a[href$=".png"],
+table tr td:first-of-type a[href$=".gif"],
+table tr td:first-of-type a[href$=".svg"],
+table tr td:first-of-type a[href$=".jpeg"] {
+  background-image: url(./.images/image.png);
+}
+
+/* zips */
+/* line 109, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+table tr td:first-of-type a[href$=".zip"] {
+  background-image: url(./.images/zip.png);
+}
+
+/* css */
+/* line 113, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+table tr td:first-of-type a[href$=".css"] {
+  background-image: url(./.images/css.png);
+}
+
+/* docs */
+/* line 124, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+table tr td:first-of-type a[href$=".doc"],
+table tr td:first-of-type a[href$=".docx"],
+table tr td:first-of-type a[href$=".ppt"],
+table tr td:first-of-type a[href$=".pptx"],
+table tr td:first-of-type a[href$=".pps"],
+table tr td:first-of-type a[href$=".ppsx"],
+table tr td:first-of-type a[href$=".xls"],
+table tr td:first-of-type a[href$=".xlsx"] {
+  background-image: url(./.images/office.png);
+}
+
+/* videos */
+/* line 132, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+table tr td:first-of-type a[href$=".avi"],
+table tr td:first-of-type a[href$=".wmv"],
+table tr td:first-of-type a[href$=".mp4"],
+table tr td:first-of-type a[href$=".mov"],
+table tr td:first-of-type a[href$=".m4a"] {
+  background-image: url(./.images/video.png);
+}
+
+/* audio */
+/* line 139, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+table tr td:first-of-type a[href$=".mp3"],
+table tr td:first-of-type a[href$=".ogg"],
+table tr td:first-of-type a[href$=".aac"],
+table tr td:first-of-type a[href$=".wma"] {
+  background-image: url(./.images/audio.png);
+}
+
+/* web pages */
+/* line 145, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+table tr td:first-of-type a[href$=".html"],
+table tr td:first-of-type a[href$=".htm"],
+table tr td:first-of-type a[href$=".xml"] {
+  background-image: url(./.images/xml.png);
+}
+
+/* line 148, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+table tr td:first-of-type a[href$=".php"] {
+  background-image: url(./.images/php.png);
+}
+
+/* line 151, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+table tr td:first-of-type a[href$=".js"] {
+  background-image: url(./.images/script.png);
+}
+
+/* directories */
+/* line 155, /home/bigstore/deploy/emangu/app/assets/stylesheets/categories.css.scss */
+table tr.dir td:first-of-type a {
+  background-image: url(./.images/folder.png);
+}
+/* line 1, /home/bigstore/deploy/emangu/app/assets/stylesheets/scaffolds.css.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /home/bigstore/deploy/emangu/app/assets/stylesheets/scaffolds.css.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, /home/bigstore/deploy/emangu/app/assets/stylesheets/scaffolds.css.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, /home/bigstore/deploy/emangu/app/assets/stylesheets/scaffolds.css.scss */
+a {
+  color: #000;
+}
+/* line 23, /home/bigstore/deploy/emangu/app/assets/stylesheets/scaffolds.css.scss */
+a:visited {
+  color: #666;
+}
+/* line 26, /home/bigstore/deploy/emangu/app/assets/stylesheets/scaffolds.css.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 33, /home/bigstore/deploy/emangu/app/assets/stylesheets/scaffolds.css.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 38, /home/bigstore/deploy/emangu/app/assets/stylesheets/scaffolds.css.scss */
+#notice {
+  color: green;
+}
+
+/* line 42, /home/bigstore/deploy/emangu/app/assets/stylesheets/scaffolds.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 48, /home/bigstore/deploy/emangu/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 55, /home/bigstore/deploy/emangu/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 65, /home/bigstore/deploy/emangu/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
