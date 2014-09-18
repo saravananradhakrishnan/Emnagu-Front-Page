@@ -1,9 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  def after_sign_up_path_for(resource)
-    edit_user_registration_url(:subdomain => resource.subdomain)
-  end
-  
+  # def after_sign_up_path_for(resource)
+  #   edit_user_registration_url(:subdomain => resource.subdomain)
+  # end
   def update
     @user = User.find(current_user.id)
 
@@ -18,7 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     if successfully_updated
       set_flash_message :notice, :updated
-      # Sign in the user bypassing validation in case their password changed
+      #Sign in the user bypassing validation in case their password changed
       sign_in @user, :bypass => true
       redirect_to after_update_path_for(@user)
     else
