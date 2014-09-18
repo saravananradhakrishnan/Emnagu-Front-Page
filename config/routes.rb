@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   mount Ckeditor::Engine => '/ckeditor'
   resources :sites
 
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
 
   scope :api , defaults: { format: 'json' } do
   # scope :api do
+    resources :themes
     devise_for :users, :controllers => { :registrations => "registrations" }
     resources :posts do
       member do
