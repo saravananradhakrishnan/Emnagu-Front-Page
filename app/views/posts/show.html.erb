@@ -31,6 +31,18 @@
     <% end %>
   <% end %>
 <% end %>
+<% if current_user.present? %>
+  <% if current_user.liked? @post %>
+    <%= link_to "dislike", dislike_post_path(@post), method: :put %>
+  <% else %>
+    <%= link_to "like", like_post_path(@post), method: :put %>
+  <% end %>
+    <%= link_to "like", like_post_path(@post), method: :put %>
+<% else %>
+  
+<% end %>  
+<%= @post.get_likes.size%>
+
 <% @post.comments.each do |comment| %>
   <%= comment.body.html_safe %>
   By:<%= comment.user.username %>

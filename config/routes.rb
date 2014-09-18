@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  devise_for :users, :controllers => { :registrations => "registrations" }
 
 
   # resources :posts do
@@ -22,10 +21,13 @@ Rails.application.routes.draw do
 
   scope :api , defaults: { format: 'json' } do
   # scope :api do
+    devise_for :users, :controllers => { :registrations => "registrations" }
     resources :posts do
       member do
         get :published
         get :unpublished
+        put :like
+        put :dislike
       end
       collection do
         get :blog_posts

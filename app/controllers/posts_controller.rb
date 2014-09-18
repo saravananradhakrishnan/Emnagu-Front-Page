@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :published, :unpublished, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :published, :unpublished, :update, :destroy,:like, :dislike]
   before_action :authenticate_user!, :except =>[:index, :show]
   respond_to :json
   # GET /posts
@@ -71,6 +71,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    @post.liked_by current_user
+    if @post.vote_registered?
+      redirect_to @post, notice: 'successfully liked the post'
+    else
+      redirect_to @post, notice: 'already liked the post' 
+    end
+  end
+
+  def dislike
+    @post.unliked_by current_user
+    redirect_to @post, notice: 'successfully disliked the post' 
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

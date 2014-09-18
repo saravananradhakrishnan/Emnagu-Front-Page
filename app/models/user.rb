@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, request_keys: [:subdomain]
-
-
+  acts_as_voter
   after_create :auto_create_subdomain
   # after_create :send_admin_mail
   # after_create :send_admin_mails
