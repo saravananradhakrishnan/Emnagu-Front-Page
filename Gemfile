@@ -42,12 +42,6 @@ gem 'spring',        group: :development
 gem 'devise'
 
 
-gem 'debugger', group: [:development, :test]
-# gem 'spring' , group: [:development, :test]
-gem 'awesome_print', group: [:development, :test]
-gem "binding_of_caller", group: [:development, :test]
-gem 'better_errors', group: [:development, :test]
-
 
 # For the HTML editor
 gem 'ckeditor', github: 'galetahub/ckeditor'
