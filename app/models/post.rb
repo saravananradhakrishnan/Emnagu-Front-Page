@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :body
   belongs_to :user
   acts_as_votable
+  has_many :contacts
   has_many :comments
   scope :sorted, lambda {order('published_at')}
   scope :published, lambda {where('published_at IS NOT NULL')}

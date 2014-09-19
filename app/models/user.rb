@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, request_keys: [:subdomain]
   acts_as_voter
   after_create :auto_create_subdomain
-  # after_create :send_admin_mail
+  after_create :send_admin_mail
   # after_create :send_admin_mails
   has_many :posts
   has_many :comments
@@ -27,4 +27,9 @@ class User < ActiveRecord::Base
     UserMailer.welcome_email(self).deliver
   end
 
+  def avatar_user_url
+    gravatar_id = Digest::MD5.hexdigest(self.email.downcase)
+    "https://secure.gravatar.com/avatar/#{gravatar_id}"
+  end
+  
 end

@@ -15,7 +15,7 @@
   <%= @post.set_date %>
   <br>
   <strong>Written By</strong>
-  <%= @post.user.username.capitalize %>
+  <%= link_to @post.user.username.capitalize, user_profile_post_path(@post)  %>
   <% end %>
 </p>
 <% if @post.users_post(current_user) %>
@@ -37,8 +37,8 @@
   <% else %>
     <%= link_to "like", like_post_path(@post), method: :put %>
   <% end %>
-    <%= link_to "like", like_post_path(@post), method: :put %>
 <% else %>
+  <%= link_to "like", like_post_path(@post), method: :put %>
   
 <% end %>  
 <%= @post.get_likes.size%>

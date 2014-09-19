@@ -16,7 +16,7 @@
       <tr>
         <td><%= link_to post.title, post %></td>
         <td><%= post.body %></td>
-        <td><%= post.user.username.capitalize %></td>
+        <td><%= link_to post.user.username.capitalize, user_profile_post_path(post) %></td>
         <td><%= post.set_date %></td>
       </tr>
     <% end %>

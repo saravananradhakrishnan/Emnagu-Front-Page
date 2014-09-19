@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918124630) do
+ActiveRecord::Schema.define(version: 20140919052418) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 20140918124630) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "contacts", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "content"
+    t.integer  "post_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contacts", ["post_id"], name: "index_contacts_on_post_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"

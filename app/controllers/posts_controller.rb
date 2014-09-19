@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :published, :unpublished, :update, :destroy,:like, :dislike]
-  before_action :authenticate_user!, :except =>[:index, :show]
+  before_action :set_post, only: [:show, :edit, :published, :unpublished, :update, :destroy,:like, :dislike, :user_profile]
+  before_action :authenticate_user!, :except =>[:index, :show, :user_profile]
   respond_to :json
   # GET /posts
   def index
@@ -83,6 +83,10 @@ class PostsController < ApplicationController
   def dislike
     @post.unliked_by current_user
     redirect_to @post, notice: 'successfully disliked the post' 
+  end
+
+  def user_profile
+    @post = @post
   end
   
   private
