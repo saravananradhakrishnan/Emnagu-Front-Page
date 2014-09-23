@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_post_id, only: [:show, :edit, :update, :destroy, :new, :create]
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:show]
-
+  respond_to :json
   # GET /comments
   def index
     render_404

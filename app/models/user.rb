@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
   after_create :strip_whitespace
   after_create :auto_create_subdomain
-  # after_create :send_admin_mails
+  acts_as_voter
+  after_create :send_admin_mail
   has_many :posts
   has_many :comments
   validates_uniqueness_of :username
@@ -52,6 +53,11 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  def avatar_user_url
+    gravatar_id = Digest::MD5.hexdigest(self.email.downcase)
+    "https://secure.gravatar.com/avatar/#{gravatar_id}"
   end
 
 end

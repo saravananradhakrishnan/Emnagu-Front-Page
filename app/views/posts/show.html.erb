@@ -15,7 +15,7 @@
   <%= @post.set_date %>
   <br>
   <strong>Written By</strong>
-  <%= @post.user.username.capitalize %>
+  <%= link_to @post.user.username.capitalize, user_profile_post_path(@post)  %>
   <% end %>
 </p>
 <% if @post.users_post(current_user) %>
@@ -31,6 +31,18 @@
     <% end %>
   <% end %>
 <% end %>
+<% if current_user.present? %>
+  <% if current_user.liked? @post %>
+    <%= link_to "dislike", dislike_post_path(@post), method: :put %>
+  <% else %>
+    <%= link_to "like", like_post_path(@post), method: :put %>
+  <% end %>
+<% else %>
+  <%= link_to "like", like_post_path(@post), method: :put %>
+  
+<% end %>  
+<%= @post.get_likes.size%>
+
 <% @post.comments.each do |comment| %>
   <%= comment.body.html_safe %>
   By:<%= comment.user.username %>

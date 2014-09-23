@@ -16,7 +16,7 @@
       <tr>
         <td><%= link_to post.title, post %></td>
         <td><%= post.body %></td>
-        <td><%= post.user.username.capitalize %></td>
+        <td><%= link_to post.user.username.capitalize, user_profile_post_path(post) %></td>
         <td><%= post.set_date %></td>
       </tr>
     <% end %>
@@ -24,5 +24,10 @@
 </table>
 
 <br>
-
+<h1> Recent Post </h1>
+<% @posts.order('published_at desc').limit(3).each do |post| %>
+  <% if post.published_at %>
+    <%= link_to post.title.capitalize, post %>
+  <% end %>
+<% end %>
 <%= link_to 'New Post', new_post_path %>
