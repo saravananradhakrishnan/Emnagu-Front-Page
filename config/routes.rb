@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
-
+  
   mount Ckeditor::Engine => '/ckeditor'
   resources :sites
 
-  resources :categories
+  
+
+  namespace :api, defaults: {format: :json} do
+    devise_scope :user do
+      resource :session, only: [:create, :destroy]
+    end
+    resources :categories
+  end
+
 
   # scope :api , defaults: { format: 'json' } do
   resources :themes
