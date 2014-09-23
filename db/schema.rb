@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140919052418) do
+ActiveRecord::Schema.define(version: 20140919124804) do
+
+  create_table "applicants", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "contact"
+    t.string   "resume"
+    t.integer  "job_id",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "applicants", ["job_id"], name: "index_applicants_on_job_id", using: :btree
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -58,6 +70,13 @@ ActiveRecord::Schema.define(version: 20140919052418) do
   end
 
   add_index "contacts", ["post_id"], name: "index_contacts_on_post_id", using: :btree
+
+  create_table "jobs", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "title"
