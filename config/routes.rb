@@ -1,24 +1,29 @@
 Rails.application.routes.draw do
 
-
   mount Ckeditor::Engine => '/ckeditor'
   resources :sites
 
   resources :categories
 
-  #devise_for :users, :controllers => { :registrations => "registrations" }
+  # scope :api , defaults: { format: 'json' } do
+  resources :themes
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: "registrations"}
-  
-
+  resources :jobs do
+    resources :applicants
+  end
 
   resources :posts do
     member do
       get :published
       get :unpublished
+      get :user_profile
+      put :like
+      put :dislike
     end
     collection do
       get :blog_posts
     end
+    resources :contacts
     resources :comments
   end
   # The priority is based upon order of creation: first created -> highest priority.
@@ -76,5 +81,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  #root to: "home#index"
+  root to: "home#index"
 end
