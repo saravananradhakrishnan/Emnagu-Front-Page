@@ -10,7 +10,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         sign_in(:user, @user)
         # actually if you really really need that id in the session, you can leave this line too :)
         session[:user_id] = @user.id 
-        redirect_to root_path, :notice => "Signed in!"   
+        redirect_to categories_path , :notice => "Signed in!"   
 
         # sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
         # set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?

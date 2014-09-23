@@ -76,5 +76,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  #root to: "home#index"
+  root to: "home#index"
 end

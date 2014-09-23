@@ -5,10 +5,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/json' }
   before_action :authenticate_user!
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
+  #before_filter :set_default_response_format
   
 
   protected
-
+    
+    def set_default_response_format
+      request.format = :json
+    end
+  
    def access_denied!
     # TODO: implent access denied page
     render_404
