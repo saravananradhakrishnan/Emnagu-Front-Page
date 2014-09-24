@@ -52,10 +52,13 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
+
 # For the HTML editor
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem "non-stupid-digest-assets"
 gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave-video'
+gem 'carrierwave-ffmpeg'
 gem 'mini_magick'
 gem 'fog', '~> 1.21.0'
 gem 'unf'
