@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
     # end
   end
 
+  def subdomain_user
+    User.find_by_subdomain(request.subdomain)
+  end
+
   def render_404
     render file: Rails.root.join("public", "404"), layout: false, status: "404"
   end
