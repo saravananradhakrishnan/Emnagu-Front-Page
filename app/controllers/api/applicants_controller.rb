@@ -1,6 +1,7 @@
 class Api::ApplicantsController < ApplicationController
   before_action :set_job_id, only: [:show, :edit, :update, :destroy, :new, :create]
   before_action :set_applicant, only: [:show, :edit, :update, :destroy]
+  respond_to  :json
   # GET /applicants
   # GET /applicants.json
   def index
