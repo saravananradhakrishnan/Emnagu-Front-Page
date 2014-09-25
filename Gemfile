@@ -27,12 +27,8 @@ gem 'oj'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-group :development do
-  gem 'spring'
-  gem "better_errors"
-  gem "binding_of_caller"
-  gem "nested_form"
-end
+gem "nested_form"
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -52,10 +48,14 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
+
+
 # For the HTML editor
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem "non-stupid-digest-assets"
 gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave-video'
+gem 'carrierwave-ffmpeg'
 gem 'mini_magick'
 gem 'fog', '~> 1.21.0'
 gem 'unf'
