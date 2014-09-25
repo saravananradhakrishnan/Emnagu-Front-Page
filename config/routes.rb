@@ -12,7 +12,33 @@ Rails.application.routes.draw do
     devise_scope :user do
       resource :session, only: [:create, :destroy]
     end
+
     resources :categories
+    resources :portfolios
+    resources :themes 
+
+    resources :jobs do
+      resources :applicants
+    end
+
+    
+    resources :posts do
+      member do
+        get :published
+        get :unpublished
+        get :user_profile
+        put :like
+        put :dislike
+      end
+
+      collection do
+        get :blog_posts
+      end
+
+      resources :contacts
+      resources :comments
+      
+    end
   end
 
 
