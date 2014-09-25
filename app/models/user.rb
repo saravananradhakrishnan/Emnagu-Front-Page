@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
   # def self.find_for_authentication(warden_conditions)
   #   where(:email => warden_conditions[:email], :subdomain => warden_conditions[:subdomain]).first
   # end
+  
+  def clear_authentication_token!
+    update_attribute(:authentication_token, nil)
+  end
 
   def auto_create_subdomain
     self.subdomain = self.username
