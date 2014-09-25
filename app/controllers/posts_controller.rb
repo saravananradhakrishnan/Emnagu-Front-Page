@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   respond_to :json
   # GET /posts
   def index
-    @posts = Post.published
+    @posts = Post.where(user: subdomain_user).published
   end
 
   # GET /posts/1
@@ -13,7 +13,11 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    if current_user.subdomain == request.subdomain
+      @post = Post.new 
+    else
+      render_404
+    end
   end
 
   # GET /posts/1/edit
@@ -25,7 +29,6 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = current_user.posts.new(post_params)
-
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
     else

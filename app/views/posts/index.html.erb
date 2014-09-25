@@ -30,4 +30,4 @@
     <%= link_to post.title.capitalize, post %>
   <% end %>
 <% end %>
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_post_path if current_user.subdomain == request.subdomain%>

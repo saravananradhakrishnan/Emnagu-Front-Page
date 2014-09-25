@@ -7,7 +7,6 @@ class Post < ActiveRecord::Base
   has_many :comments
   scope :sorted, lambda {order('published_at')}
   scope :published, lambda {where('published_at IS NOT NULL')}
-
   #Publish the blogpost
   def publish!
     if self.published_nil?
