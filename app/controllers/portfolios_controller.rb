@@ -1,6 +1,7 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except =>[:index, :show]
+  before_filter :find_subdomain
   respond_to :json
   # GET /portfolios
   # GET /portfolios.json

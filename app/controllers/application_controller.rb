@@ -5,9 +5,15 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/json' }
   #before_action :authenticate_user!
   # protect_from_forgery with: :exception
-  before_action :configure_devise_permitted_parameters, if: :devise_controller?
+  before_action :configure_devise_permitted_parameters, if: :devise_controller? 
   #before_filter :set_default_response_format
   
+  private
+
+  def find_subdomain
+    @subdomain = User.find_by_subdomain(request.subdomain)
+    redirect_to "http://#{request.domain}:#{request.port}" if @subdomain.nil?
+  end
 
   protected
     
