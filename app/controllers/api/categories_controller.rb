@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class Api::CategoriesController < Api::BaseController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
@@ -18,11 +18,8 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     # Grab all sub-categories
-    @categories = @category.subcategories
-    # We want to reuse the index renderer:
-    # respond_to do |format|
-    #   format.html { render :action => :index }
-    # end
+    render json: @categories = @category.subcategories
+
   end
 
   # GET /categories/new

@@ -1,27 +1,24 @@
 Rails.application.routes.draw do
 
-  root to: "home#index"
-
-  
+  resources :categories
   mount Ckeditor::Engine => '/ckeditor'
   resources :sites
 
-  
 
-  namespace :api, defaults: {format: :json} do
+  namespace :'api', defaults: {format: :json} do
     devise_scope :user do
       resource :session, only: [:create, :destroy]
     end
 
     resources :categories
     resources :portfolios
-    resources :themes 
+    resources :themes
 
     resources :jobs do
       resources :applicants
     end
 
-    
+
     resources :posts do
       member do
         get :published
@@ -37,14 +34,15 @@ Rails.application.routes.draw do
 
       resources :contacts
       resources :comments
-      
+
     end
   end
 
-
-  # scope :api , defaults: { format: 'json' } do
+# scope :api-old , defaults: { format: 'json' } do
   resources :themes
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: "registrations"}
+  devise_for :users, :controllers => {:omniauth_callbacks => "omniauth_callbacks", registrations: "registrations"}
+
+
   resources :jobs do
     resources :applicants
   end
@@ -64,4 +62,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :portfolios
+
+  root to: "home#index"
+
 end
