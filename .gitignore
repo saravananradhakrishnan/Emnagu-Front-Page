@@ -18,3 +18,6 @@
 # Ignore Custom files
 /config/database.yml
 database.yml
+
+/.idea
+emangu.iml

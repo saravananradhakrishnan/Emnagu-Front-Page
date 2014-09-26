@@ -1,11 +1,11 @@
 class Api::PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except =>[:index, :show]
-  respond_to :json
+  # respond_to :json
   # GET /portfolios
   # GET /portfolios.json
   def index
-    @portfolios = Portfolio.all
+    render json: @portfolios = Portfolio.all
   end
 
   # GET /portfolios/1
