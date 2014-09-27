@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :published, :unpublished, :update, :destroy,:like, :dislike, :user_profile]
-  before_action :authenticate_user!, :except =>[:index, :show, :user_profile]
+  #before_action :authenticate_user!, :except =>[:index, :show, :user_profile]
   before_filter :find_subdomain
   respond_to :json
   # GET /posts
