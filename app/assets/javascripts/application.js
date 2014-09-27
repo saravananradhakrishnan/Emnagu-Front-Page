@@ -14,6 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery_nested_form
+//= require angular
+//= require angular-route
+//= require angular-resource
+//= require angular-ui-bootstrap
 //= require ckeditor/init
 
 //= require_tree .

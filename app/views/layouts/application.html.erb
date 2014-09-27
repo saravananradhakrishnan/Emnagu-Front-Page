@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Emangu">
 <head>
   <title>DeviceTest</title>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -27,7 +27,10 @@
 	  <li class="active"><a href="/categories">Categories</a></li>
 	
 	</ul>
-	<%= yield %>
+	<div class="container" ng-view>
+	
+		<%= yield %>
+	</div>
 
 </body>
 </html>
