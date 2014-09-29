@@ -1,27 +1,53 @@
-<br/>
-<div class="row">
-    <div class="col-md-12">
-        <a class="btn btn-primary" href="/posts/new">Create a post</a>
+<!DOCTYPE html>
+<html ng-app="Emangu">
+<head>
+	<title>emangu</title>
+	<!-- // <script type="text/javascript" src="/templates/lib/angular/angular.js"></script> -->
+  <!-- // <script src="/templates/lib/angular/angular-route.min.js"></script> -->
+  <!-- // <script src="/templates/lib/angular/angular-animate.min.js"></script> -->
+  <script src="/templates/lib/angular/angular-cookies.js"></script>
+	 <script type="text/javascript" src="/templates/assets/plugins/jquery-1.8.3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/templates/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/templates/css/bootstrap-theme.min.css"/>
+	<style type="text/css">
+		.cke_textarea_inline
+		{
 
-        <h3 class="block">Posts</h3>
-        <table class="table table-striped">
-            <tr>
-                <th>Title</th>
-                <th>Body</th>
-                <th>Published at</th>
-                <th></th>
-            </tr>
-            <tr ng-hide="posts.length">
-                <td colspan="5">No Post found, Please create one.</td>
-            </tr>
-            <tr ng-show="posts.length" ng-repeat="post in posts">
-                <td>{{post.title}}</td>
-                <td>{{post.body}}</td>
-                <td>{{post.user.username}}</td>
-                <td>
-                    <!-- <a href="#/posts/{{post.id}}/edit">Edit</a> | <a href="" ng-click="deleteProduct(product.id)">Remove</a> -->
-                </td>
-            </tr>
-        </table>
-    </div>
+			height: 200px;
+			overflow: auto;
+
+			-webkit-appearance: textfield;
+			background-color:white;
+		}
+	</style>
+</head>
+<body>
+
+<!--Header -->
+<div ng-include="'templates/posts/partials/_header.html'"></div>
+  
+
+<!-- Body -->
+<div class="container" ng-controller="PostsListCtr">
+	<div class="row">
+<div ng-include="'templates/posts/partials/blog.html'"></div>
+  <div class="col-md-8">
+    <ng-view></ng-view>
+  </div>
+    <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4" ng-include="'templates/posts/partials/_sidemenu.html'">
+              
+            </div>
+  </div>
 </div>
+<!--Footer -->
+<div ng-include="'templates/posts/partials/_footer.html'"></div>
+<script src="/templates/js/blogapp.js"></script>
+<script src="/templates/js/controllers.js"></script>
+<script type="text/javascript" src="/templates/lib/bootstrap.min.js"></script>
+<script src="/templates/lib/ckeditor.js"></script>
+
+<script src="/templates/lib/styles.js"></script>
+
+</body>
+</html>

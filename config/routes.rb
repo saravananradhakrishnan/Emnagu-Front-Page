@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       resources :applicants
     end
 
-    match 'blog' => "posts#index",      :as => :blog  , via: [:get, :post]
+    # match 'blog' => "posts#index",      :as => :blog  , via: [:get, :post]
 
     resources :posts do
       member do
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
     end
   end
-  match 'blog' => "posts#index",      :as => :blog  , via: [:get, :post]
+  # match 'blog' => "posts#index",      :as => :blog  , via: [:get, :post]
 # scope :api-old , defaults: { format: 'json' } do
   resources :themes
   devise_for :users, :controllers => {:omniauth_callbacks => "omniauth_callbacks", registrations: "registrations"}
