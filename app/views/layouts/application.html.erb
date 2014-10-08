@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html ng-app="Emangu">
 <head>
     <title>DeviceTest</title>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= csrf_meta_tags %>
 </head>
 <body>
@@ -12,17 +14,17 @@
 <% if alert %>
     <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-<p class="navbar-text pull-right">
+ <!-- Header -->
+ <div ng-include src="'template/partials/_header.html'"></div>
 
-    <!--<ul class="nav">-->
-        <!--<li class="active"><a href="/">Home</a></li>-->
-        <!--<li class="active"><a href="/sites">Sites</a></li>-->
-        <!--<li class="active"><a href="/categories">Categories</a></li>-->
-
-    <!--</ul>-->
-    <div class="container" ng-view>
+ <!-- Dynamic Body -->
+    <div  ng-view>
         <%= yield %>
     </div>
+
+    <!-- Footer -->
+
+        <div ng-include src="'template/partials/_footer.html'" ></div>
 
     </body>
 </html>

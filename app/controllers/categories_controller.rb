@@ -48,7 +48,7 @@ class CategoriesController < ApplicationController
       if @category.save
         if !@category.parent_id.nil?
           @category = Category.find(@category.parent_id)
-          format.html { redirect_to @category, notice: 'Category was successfully created.' }
+          format.html { redirect_to @category, notice: 'Category was successfully created.' }0
           format.json { render :show, status: :created, location: @category }
         else
           format.html { redirect_to @category, notice: 'Category was successfully created.' }
